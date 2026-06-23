@@ -4,42 +4,56 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Recipe Box is a full-stack SPA for browsing, saving, and creating recipes. The frontend is React + Vite; the backend (planned) is Django + DRF with PostgreSQL. Recipe data is sourced from the MealDB external API.
+Recipe Box is a full-stack SPA for browsing, saving, and creating recipes. The frontend is React + Vite (in `Recipe_Box/`); the backend is Supabase (PostgreSQL + Auth), managed via the Supabase CLI in `supabase/`. Recipe browsing uses the external MealDB API.
 
-## Frontend Commands
+## Commands
+
+All commands run from `Recipe_Box/`:
 
 ```bash
-npm run dev       # start dev server with HMR
+npm run dev       # start dev server with HMR (localhost:5173)
 npm run build     # production build → dist/
 npm run preview   # serve the dist/ build locally
 npm run lint      # ESLint check
 ```
 
+Supabase CLI commands run from `supabase/` (uses npx):
+
+```bash
+npx supabase db push          # push local migrations to linked project
+npx supabase status           # show linked project info
+```
+
+The Supabase project is already linked (ref: `gbatqjmnqlrxaqgjuyik`, name: Recipe_box).
+
 ## Architecture
 
-### Current state
-The frontend scaffold lives in `src/`. `App.jsx` is still the Vite default template — the real page components have not been built yet. `react-router-dom` v7 is installed and ready for routing.
+### Routing (`src/App.jsx`)
+All routes except `/` and `/auth` are wrapped in `<ProtectedRoute>`, which redirects unauthenticated users to `/auth`. Auth state comes from `AppContext`.
 
-### Planned pages (wireframes in `skeleton/pages/`)
-| Page | Purpose |
-|---|---|
-| Landing | Public intro, entry point for unauthenticated users |
-| Sign Up / Log In | Single auth form that toggles between register and login |
-| Home | Post-login hub |
-| Browse Recipes | MealDB search by ingredient or meal name |
-| Recipe | Full recipe detail (name, category, cuisine, ingredients, instructions) |
-| Favorites | User's saved MealDB recipes |
-| Create Recipe / My Recipes | User-authored recipes with full CRUD |
-| Profile | View and edit user info; delete account |
-| Contact Us | Support links (email, phone, GitHub, LinkedIn) |
-| Error | Catch-all error state with Home button |
+### State management (`src/context/AppContext.jsx`)
+Single React context (`AppContext`) holds the entire app state: `user`, `favorites`, `myRecipes`, and `registeredUsers`. Exposes functions for auth (`register`, `login`, `logout`), profile (`updateProfile`, `deleteAccount`), favorites (`addFavorite`, `removeFavorite`, `isFavorite`), and user recipes (`createRecipe`, `updateRecipe`, `deleteRecipe`).
+
+**Current state:** Auth and data are stored in-memory only (no persistence between page reloads). Migration to Supabase Auth + database is planned.
+
+### Database schema (`supabase/reference/testing_schema.sql`)
+Three tables:
+- `users` — mirrors Supabase Auth users, stores profile fields
+- `recipes` — user-authored recipes (`user_id` FK → `users`)
+- `favorites` — saved MealDB recipes, keyed by `mealdb_id` string (`user_id` FK → `users`)
+
+### Component conventions
+Each page in `src/pages/` has a paired `.css` file. Shared components live in `src/components/` (also paired `.css`). `PageShell` wraps authenticated pages with the `Nav` bar.
+
+### Design rules
+- Color palette is fixed — do not deviate from `skeleton/pages/Design_colors.png`
+- All destructive actions (delete, remove) must show a confirmation modal (`ConfirmModal`) before executing
+- Error messages must be human-readable; never expose raw technical details
 
 ### Data sources
-- **MealDB API** — external library for browsing/searching recipes
-- **Django + DRF backend** (to be built) — handles auth, favorites, and user-created recipes stored in PostgreSQL
+- **MealDB API** — external read-only API for Browse/RecipeDetail pages
+- **Supabase** — target backend for auth, favorites, and user-created recipes
+- `src/data/mockRecipes.js` — local mock data for development
 
-### Auth flow
-Unauthenticated users → Landing → Auth form → Home. Logout returns the user to the Auth form.
-
-## Design reference
-Wireframe screenshots for every page are in `skeleton/pages/`. Consult them when building components. The full user journey descriptions are in `skeleton/user_journey.md`.
+### Wireframes
+Page wireframes are in `skeleton/pages/`. The full user journey is in `skeleton/user_journey.md`. Consult both when building or modifying pages.
