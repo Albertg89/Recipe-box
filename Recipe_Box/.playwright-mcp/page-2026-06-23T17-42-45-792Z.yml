@@ -1,0 +1,55 @@
+- generic [ref=e41]:
+  - generic [ref=e42]:
+    - generic [ref=e43]: 🍲
+    - generic [ref=e44]: Recipe Box
+  - navigation [ref=e45]:
+    - link "Home" [ref=e46] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e47] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e48] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e49] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e50] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e51] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e52] [cursor=pointer]
+  - generic [ref=e54]:
+    - generic [ref=e55]:
+      - heading "We'd love to hear from you." [level=2] [ref=e56]
+      - paragraph [ref=e57]: Have a question, a suggestion, or just want to say hello? We're always happy to hear from our community. Reach out through any of the channels below and we'll get back to you as soon as we can.
+    - generic [ref=e58]:
+      - heading "Contact us:" [level=3] [ref=e59]
+      - list [ref=e60]:
+        - listitem [ref=e61]:
+          - generic [ref=e62]: ✉️
+          - generic [ref=e63]:
+            - generic [ref=e64]: Email
+            - link "albertg89@hotmail.com" [ref=e65] [cursor=pointer]:
+              - /url: mailto:albertg89@hotmail.com
+        - listitem [ref=e66]:
+          - generic [ref=e67]: 📞
+          - generic [ref=e68]:
+            - generic [ref=e69]: Phone
+            - link "555-555-5555" [ref=e70] [cursor=pointer]:
+              - /url: tel:5555555555
+        - listitem [ref=e71]:
+          - generic [ref=e72]: 💼
+          - generic [ref=e73]:
+            - generic [ref=e74]: GitHub
+            - link "github.com/recipebox" [ref=e75] [cursor=pointer]:
+              - /url: https://github.com
+        - listitem [ref=e76]:
+          - generic [ref=e77]: 🔗
+          - generic [ref=e78]:
+            - generic [ref=e79]: LinkedIn
+            - link "linkedin.com/in/recipebox" [ref=e80] [cursor=pointer]:
+              - /url: https://linkedin.com
+        - listitem [ref=e81]:
+          - generic [ref=e82]: 📸
+          - generic [ref=e83]:
+            - generic [ref=e84]: Instagram
+            - link "@recipebox" [ref=e85] [cursor=pointer]:
+              - /url: https://instagram.com

@@ -1,111 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Design tokens ── */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --primary:        #6B8E6D;
+  --primary-dark:   #4d6b4f;
+  --primary-light:  #e4ede5;
+  --secondary:      #F5F2ED;
+  --tertiary:       #AC7784;
+  --tertiary-dark:  #8a5b66;
+  --tertiary-light: #f5e8ea;
+  --neutral:        #2F363D;
+  --neutral-mid:    #5a6470;
+  --neutral-light:  #9aa3ab;
+  --white:          #ffffff;
+  --border:         #ddd8cf;
+  --bg-logo:        #e4e0d8;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-body:     'Inter', system-ui, sans-serif;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --shadow-sm: 0 1px 4px rgba(47,54,61,0.08);
+  --shadow-md: 0 4px 16px rgba(47,54,61,0.10);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
+
+/* ── Base ── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--secondary);
+  color: var(--neutral);
+  min-height: 100vh;
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+  line-height: 1.2;
+  color: var(--neutral);
+}
+
+p { margin: 0; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.5rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--neutral);
+  border-color: var(--border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--neutral);
+  color: var(--white);
+  border-color: var(--neutral);
+}
+
+.btn-inverted {
+  background: var(--neutral);
+  color: var(--white);
+  border-color: var(--neutral);
+}
+.btn-inverted:hover:not(:disabled) {
+  background: var(--neutral-mid);
+  border-color: var(--neutral-mid);
+}
+
+.btn-destructive {
+  background: var(--tertiary);
+  color: var(--white);
+  border-color: var(--tertiary);
+}
+.btn-destructive:hover:not(:disabled) {
+  background: var(--tertiary-dark);
+  border-color: var(--tertiary-dark);
+}
+
+.btn-ghost-destructive {
+  background: transparent;
+  color: var(--tertiary);
+  border-color: var(--tertiary);
+}
+.btn-ghost-destructive:hover:not(:disabled) {
+  background: var(--tertiary);
+  color: var(--white);
+}
+
+/* ── Forms ── */
+.form-group {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  gap: 0.3rem;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
+.form-group label {
+  font-size: 0.82rem;
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--neutral-mid);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 0.6rem 0.85rem;
+  width: 100%;
+  background: var(--white);
+  color: var(--neutral);
+  transition: border-color 0.15s;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* ── Utility ── */
+.error-banner {
+  background: var(--tertiary-light);
+  border: 1px solid var(--tertiary);
+  border-radius: var(--radius-xs);
+  padding: 0.6rem 0.9rem;
+  color: var(--tertiary-dark);
+  font-size: 0.875rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }

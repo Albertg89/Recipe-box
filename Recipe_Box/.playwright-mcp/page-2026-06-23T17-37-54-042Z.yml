@@ -1,0 +1,43 @@
+- generic [ref=e287]:
+  - generic [ref=e288]:
+    - generic [ref=e289]: 🍲
+    - generic [ref=e290]: Recipe Box
+  - generic [ref=e291]: Your Recipe
+  - navigation [ref=e292]:
+    - link "Home" [ref=e293] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e294] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e295] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e296] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e297] [cursor=pointer]:
+      - /url: /profile
+    - button "Logout" [ref=e298] [cursor=pointer]
+  - generic [ref=e300]:
+    - generic [ref=e301]:
+      - generic [ref=e302]: Name of recipe
+      - textbox "e.g. Grandma's Lasagne" [ref=e303]: Mom's Chocolate Chip Cookies
+    - generic [ref=e304]:
+      - generic [ref=e305]:
+        - generic [ref=e306]: Category
+        - textbox "e.g. Pasta" [ref=e307]: Dessert
+      - generic [ref=e308]:
+        - generic [ref=e309]: Prep Time
+        - textbox "e.g. 45 mins" [ref=e310]: 40 mins
+    - generic [ref=e311]:
+      - generic [ref=e312]: Ingredients
+      - paragraph [ref=e313]: One ingredient per line, e.g. "2 cups flour"
+      - textbox "2 cups flour 1 tsp salt 3 large eggs" [ref=e314]:
+        - /placeholder: "2 cups flour\n1 tsp salt\n3 large eggs"
+        - text: 2 1/4 cups flour 1 tsp baking soda 1 tsp salt 2 sticks butter 3/4 cup sugar 2 large eggs 2 cups chocolate chips
+    - generic [ref=e315]:
+      - generic [ref=e316]: Instructions
+      - paragraph [ref=e317]: One step per line
+      - textbox "Preheat oven to 180°C. Mix dry ingredients together. Bake for 30 minutes." [ref=e318]:
+        - /placeholder: "Preheat oven to 180°C.\nMix dry ingredients together.\nBake for 30 minutes."
+        - text: Preheat oven to 375°F and line baking sheets with parchment. Beat butter and sugars until light and fluffy, about 3 minutes. Beat in eggs one at a time, then vanilla. Mix in flour, baking soda, and salt until just combined. Fold in chocolate chips. Drop tablespoons of dough 2 inches apart and bake 9-11 minutes until golden.
+    - generic [ref=e319]:
+      - button "Cancel" [ref=e320] [cursor=pointer]
+      - button "Save Changes" [ref=e321] [cursor=pointer]

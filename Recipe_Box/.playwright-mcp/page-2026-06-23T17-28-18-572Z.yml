@@ -1,0 +1,84 @@
+- generic [ref=e113]:
+  - generic [ref=e114]:
+    - generic [ref=e115]: 🍲
+    - generic [ref=e116]: Recipe Box
+  - generic [ref=e117]: Chicken Tikka Masala
+  - navigation [ref=e118]:
+    - link "Home" [ref=e119] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e120] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e121] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e122] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e123] [cursor=pointer]:
+      - /url: /profile
+    - button "Logout" [ref=e124] [cursor=pointer]
+  - generic [ref=e126]:
+    - generic [ref=e127]:
+      - img "Chicken Tikka Masala" [ref=e129]
+      - generic [ref=e130]:
+        - paragraph [ref=e131]: Tender marinated chicken in a luscious, spiced tomato-cream sauce. A beloved curry that's deeply aromatic and utterly comforting.
+        - generic [ref=e132]:
+          - generic [ref=e133]: Chicken
+          - generic [ref=e134]: Indian
+          - generic [ref=e135]: ⏱ 50 mins
+        - button "Saved ✓" [active] [ref=e195] [cursor=pointer]
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - heading "Ingredients:" [level=3] [ref=e140]
+        - list [ref=e141]:
+          - listitem [ref=e142]:
+            - generic [ref=e143] [cursor=pointer]:
+              - checkbox "700g, cubed Chicken breast" [ref=e144]
+              - generic [ref=e145]: 700g, cubed Chicken breast
+          - listitem [ref=e146]:
+            - generic [ref=e147] [cursor=pointer]:
+              - checkbox "200g Plain yogurt" [ref=e148]
+              - generic [ref=e149]: 200g Plain yogurt
+          - listitem [ref=e150]:
+            - generic [ref=e151] [cursor=pointer]:
+              - checkbox "2 tsp Garam masala" [ref=e152]
+              - generic [ref=e153]: 2 tsp Garam masala
+          - listitem [ref=e154]:
+            - generic [ref=e155] [cursor=pointer]:
+              - checkbox "400ml Tomato passata" [ref=e156]
+              - generic [ref=e157]: 400ml Tomato passata
+          - listitem [ref=e158]:
+            - generic [ref=e159] [cursor=pointer]:
+              - checkbox "150ml Heavy cream" [ref=e160]
+              - generic [ref=e161]: 150ml Heavy cream
+          - listitem [ref=e162]:
+            - generic [ref=e163] [cursor=pointer]:
+              - checkbox "4 cloves, minced Garlic" [ref=e164]
+              - generic [ref=e165]: 4 cloves, minced Garlic
+          - listitem [ref=e166]:
+            - generic [ref=e167] [cursor=pointer]:
+              - checkbox "2cm piece, grated Fresh ginger" [ref=e168]
+              - generic [ref=e169]: 2cm piece, grated Fresh ginger
+          - listitem [ref=e170]:
+            - generic [ref=e171] [cursor=pointer]:
+              - checkbox "1 large, diced Onion" [ref=e172]
+              - generic [ref=e173]: 1 large, diced Onion
+      - generic [ref=e174]:
+        - heading "Step-by-Step Instructions:" [level=3] [ref=e175]
+        - list [ref=e176]:
+          - listitem [ref=e177]:
+            - generic [ref=e178]: Step 1
+            - generic [ref=e179]: Marinate chicken in yogurt, half the garam masala, garlic, and ginger for at least 30 minutes.
+          - listitem [ref=e180]:
+            - generic [ref=e181]: Step 2
+            - generic [ref=e182]: Grill or pan-fry the marinated chicken until charred at the edges and cooked through. Set aside.
+          - listitem [ref=e183]:
+            - generic [ref=e184]: Step 3
+            - generic [ref=e185]: In a large pan, sauté onion in oil until golden. Add remaining spices and cook 2 minutes.
+          - listitem [ref=e186]:
+            - generic [ref=e187]: Step 4
+            - generic [ref=e188]: Add tomato passata and simmer 15 minutes until sauce thickens.
+          - listitem [ref=e189]:
+            - generic [ref=e190]: Step 5
+            - generic [ref=e191]: Stir in cream, then add the cooked chicken and simmer 5 more minutes.
+          - listitem [ref=e192]:
+            - generic [ref=e193]: Step 6
+            - generic [ref=e194]: Serve over basmati rice garnished with fresh cilantro.

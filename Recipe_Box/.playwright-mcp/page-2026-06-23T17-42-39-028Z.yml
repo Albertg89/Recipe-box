@@ -1,0 +1,26 @@
+- generic [ref=e20]:
+  - generic [ref=e21]:
+    - generic [ref=e22]: 🍲
+    - generic [ref=e23]: Recipe Box
+  - generic [ref=e24]: Welcome back, albertg89!
+  - navigation [ref=e25]:
+    - link "Home" [ref=e26] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e27] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e28] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e29] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e30] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e31] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e32] [cursor=pointer]
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - heading "Recent favorites:" [level=3] [ref=e35]
+      - paragraph [ref=e36]: No favorites yet — browse recipes to save some!
+    - generic [ref=e37]:
+      - heading "My Recipes:" [level=3] [ref=e38]
+      - paragraph [ref=e39]: No original recipes yet — create your first one!

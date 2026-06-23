@@ -1,0 +1,41 @@
+.error-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--secondary);
+}
+
+.error-card {
+  width: 100%;
+  max-width: 680px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.error-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
+.error-message {
+  font-size: 1.05rem;
+  color: var(--neutral);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.error-home-btn {
+  min-width: 200px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}

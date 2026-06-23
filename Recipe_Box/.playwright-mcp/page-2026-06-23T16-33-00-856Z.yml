@@ -1,0 +1,14 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: 🍲
+    - generic [ref=e7]: Recipe Box
+  - generic [ref=e8]:
+    - generic [ref=e25]: Invalid email or password. Please try again.
+    - generic [ref=e9]:
+      - textbox "email" [ref=e19]: wrong@email.com
+      - textbox "password" [ref=e20]: wrongpassword
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - text: New here?
+          - button "Sign up" [ref=e23] [cursor=pointer]
+        - button "Submit" [active] [ref=e24] [cursor=pointer]

@@ -1,0 +1,74 @@
+.my-recipes-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.my-recipes-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 3rem 0;
+  color: var(--neutral-mid);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.my-recipes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.my-recipe-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--white);
+  transition: border-color 0.15s;
+}
+
+.my-recipe-row:hover {
+  border-color: var(--primary);
+}
+
+.my-recipe-name {
+  background: none;
+  border: none;
+  font-family: var(--font-headline);
+  font-size: 1rem;
+  color: var(--neutral);
+  cursor: pointer;
+  text-align: left;
+  flex: 1;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.my-recipe-name:hover {
+  color: var(--primary);
+}
+
+.my-recipe-meta {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--neutral-light);
+  font-weight: 400;
+}
+
+.my-recipe-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.my-recipe-btn {
+  font-size: 0.82rem;
+  padding: 0.35rem 0.85rem;
+}

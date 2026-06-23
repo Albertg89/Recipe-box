@@ -1,0 +1,24 @@
+- generic [ref=e197]:
+  - generic [ref=e198]:
+    - generic [ref=e199]: 🍲
+    - generic [ref=e200]: Recipe Box
+  - generic [ref=e201]: Welcome back, albertg89!
+  - navigation [ref=e202]:
+    - link "Home" [ref=e203] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e204] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e205] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e206] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e207] [cursor=pointer]:
+      - /url: /profile
+    - button "Logout" [ref=e208] [cursor=pointer]
+  - generic [ref=e209]:
+    - generic [ref=e210]:
+      - heading "Recent favorites:" [level=3] [ref=e211]
+      - button "Chicken Tikka Masala" [ref=e212] [cursor=pointer]
+    - generic [ref=e213]:
+      - heading "My Recipes:" [level=3] [ref=e214]
+      - paragraph [ref=e215]: No original recipes yet — create your first one!

@@ -1,0 +1,12 @@
+- generic [ref=e40]:
+  - generic [ref=e41]:
+    - generic [ref=e42]: 🍲
+    - generic [ref=e43]: Recipe Box
+  - generic [ref=e45]:
+    - textbox "email" [ref=e55]
+    - textbox "password" [ref=e56]
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - text: New here?
+        - button "Sign up" [ref=e59] [cursor=pointer]
+      - button "Submit" [ref=e60] [cursor=pointer]

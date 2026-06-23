@@ -1,0 +1,15 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: 🍲
+    - generic [ref=e7]: Recipe Box
+  - generic [ref=e9]:
+    - textbox "first_name" [ref=e10]
+    - textbox "last_name" [ref=e11]
+    - textbox "username" [ref=e12]
+    - textbox "email" [ref=e13]
+    - textbox "password" [ref=e14]
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - text: Already have an account?
+        - button "Log in" [ref=e17] [cursor=pointer]
+      - button "Submit" [ref=e18] [cursor=pointer]

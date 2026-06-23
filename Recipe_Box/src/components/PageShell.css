@@ -1,0 +1,36 @@
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--secondary);
+}
+
+.page-card {
+  width: 100%;
+  max-width: 860px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.page-card--wide {
+  max-width: 1020px;
+}
+
+.page-banner {
+  background: var(--bg-logo);
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  color: var(--neutral);
+  text-align: center;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.page-body {
+  padding: 1.8rem 2rem 2.5rem;
+}

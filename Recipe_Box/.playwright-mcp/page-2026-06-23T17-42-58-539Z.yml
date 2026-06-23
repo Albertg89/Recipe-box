@@ -1,0 +1,7 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: 🍲
+    - generic [ref=e7]: Recipe Box
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Oops, something went wrong! We have captured this error and will work diligently on fixing it!
+    - button "Home" [ref=e10] [cursor=pointer]

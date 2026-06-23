@@ -1,0 +1,126 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useApp } from '../context/AppContext.jsx'
+import Logo from '../components/Logo.jsx'
+import './Auth.css'
+
+export default function Auth() {
+  const navigate = useNavigate()
+  const { register, login } = useApp()
+
+  const [mode, setMode] = useState('signup')
+  const [error, setError] = useState('')
+
+  const [signupForm, setSignupForm] = useState({
+    firstName: '', lastName: '', username: '', email: '', password: '',
+  })
+  const [loginForm, setLoginForm] = useState({ email: '', password: '' })
+
+  function handleSignup(e) {
+    e.preventDefault()
+    setError('')
+    const { firstName, lastName, username, email, password } = signupForm
+    if (!firstName || !lastName || !username || !email || !password) {
+      setError('Please fill in all fields.')
+      return
+    }
+    register({ firstName, lastName, username, email, password })
+    navigate('/home')
+  }
+
+  function handleLogin(e) {
+    e.preventDefault()
+    setError('')
+    const { email, password } = loginForm
+    if (!email || !password) {
+      setError('Please fill in all fields.')
+      return
+    }
+    const ok = login(email, password)
+    if (ok) {
+      navigate('/home')
+    } else {
+      setError('Invalid email or password. Please try again.')
+    }
+  }
+
+  function switchMode(next) {
+    setMode(next)
+    setError('')
+  }
+
+  return (
+    <div className="auth-wrapper">
+      <div className="auth-card">
+        <Logo />
+        <div className="auth-body">
+          {error && <div className="error-banner auth-error">{error}</div>}
+
+          {mode === 'signup' ? (
+            <form className="auth-form" onSubmit={handleSignup} noValidate>
+              <input
+                type="text"
+                placeholder="first_name"
+                value={signupForm.firstName}
+                onChange={e => setSignupForm(f => ({ ...f, firstName: e.target.value }))}
+              />
+              <input
+                type="text"
+                placeholder="last_name"
+                value={signupForm.lastName}
+                onChange={e => setSignupForm(f => ({ ...f, lastName: e.target.value }))}
+              />
+              <input
+                type="text"
+                placeholder="username"
+                value={signupForm.username}
+                onChange={e => setSignupForm(f => ({ ...f, username: e.target.value }))}
+              />
+              <input
+                type="email"
+                placeholder="email"
+                value={signupForm.email}
+                onChange={e => setSignupForm(f => ({ ...f, email: e.target.value }))}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                value={signupForm.password}
+                onChange={e => setSignupForm(f => ({ ...f, password: e.target.value }))}
+              />
+              <div className="auth-footer">
+                <span className="auth-toggle">
+                  Already have an account?{' '}
+                  <button type="button" onClick={() => switchMode('login')}>Log in</button>
+                </span>
+                <button type="submit" className="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          ) : (
+            <form className="auth-form" onSubmit={handleLogin} noValidate>
+              <input
+                type="email"
+                placeholder="email"
+                value={loginForm.email}
+                onChange={e => setLoginForm(f => ({ ...f, email: e.target.value }))}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                value={loginForm.password}
+                onChange={e => setLoginForm(f => ({ ...f, password: e.target.value }))}
+              />
+              <div className="auth-footer">
+                <span className="auth-toggle">
+                  New here?{' '}
+                  <button type="button" onClick={() => switchMode('signup')}>Sign up</button>
+                </span>
+                <button type="submit" className="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

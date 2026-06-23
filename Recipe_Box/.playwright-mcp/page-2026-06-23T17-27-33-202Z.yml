@@ -1,0 +1,42 @@
+- generic [ref=e40]:
+  - generic [ref=e41]:
+    - generic [ref=e42]: 🍲
+    - generic [ref=e43]: Recipe Box
+  - generic [ref=e44]: Find your next meal!
+  - navigation [ref=e45]:
+    - link "Home" [ref=e46] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e47] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e48] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e49] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e50] [cursor=pointer]:
+      - /url: /profile
+    - button "Logout" [ref=e51] [cursor=pointer]
+  - generic [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]: "Type a keyword for search:"
+      - generic [ref=e55]:
+        - searchbox "e.g. chicken, pasta, Italian…" [ref=e56]: chicken
+        - button "Search" [active] [ref=e57] [cursor=pointer]
+    - generic [ref=e97]:
+      - generic [ref=e98]: 3 results for "chicken"
+      - button "Clear search" [ref=e99] [cursor=pointer]
+    - generic [ref=e58]:
+      - button "Chicken Tikka Masala Chicken Tikka Masala Indian · Chicken" [ref=e65] [cursor=pointer]:
+        - img "Chicken Tikka Masala" [ref=e67]
+        - generic [ref=e68]:
+          - generic [ref=e69]: Chicken Tikka Masala
+          - generic [ref=e70]: Indian · Chicken
+      - button "Pad Thai Pad Thai Thai · Chicken" [ref=e100] [cursor=pointer]:
+        - img "Pad Thai" [ref=e102]
+        - generic [ref=e103]:
+          - generic [ref=e104]: Pad Thai
+          - generic [ref=e105]: Thai · Chicken
+      - button "Chicken Alfredo Chicken Alfredo Italian · Chicken" [ref=e106] [cursor=pointer]:
+        - img "Chicken Alfredo" [ref=e108]
+        - generic [ref=e109]:
+          - generic [ref=e110]: Chicken Alfredo
+          - generic [ref=e111]: Italian · Chicken

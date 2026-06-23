@@ -1,0 +1,28 @@
+- generic [ref=e263]:
+  - generic [ref=e264]:
+    - generic [ref=e265]: 🍲
+    - generic [ref=e266]: Recipe Box
+  - generic [ref=e267]: My Recipes
+  - navigation [ref=e268]:
+    - link "Home" [ref=e269] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e270] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e271] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e272] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e273] [cursor=pointer]:
+      - /url: /profile
+    - button "Logout" [ref=e274] [cursor=pointer]
+  - generic [ref=e275]:
+    - button "+ Create New Recipe" [ref=e277] [cursor=pointer]
+    - list [ref=e278]:
+      - listitem [ref=e279]:
+        - button "Mom's Chocolate Chip Cookies · Dessert · 40 mins" [ref=e280] [cursor=pointer]:
+          - text: Mom's Chocolate Chip Cookies
+          - generic [ref=e281]: · Dessert
+          - generic [ref=e282]: · 40 mins
+        - generic [ref=e283]:
+          - button "Edit" [ref=e284] [cursor=pointer]
+          - button "Delete" [ref=e285] [cursor=pointer]

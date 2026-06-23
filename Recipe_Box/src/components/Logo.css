@@ -1,0 +1,21 @@
+.logo-bar {
+  background: var(--bg-logo);
+  padding: 1.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.logo-text {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--neutral);
+  letter-spacing: -0.02em;
+}
