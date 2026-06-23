@@ -11,6 +11,8 @@ export function AppProvider({ children }) {
   function register({ firstName, lastName, username, email, password }) {
     const newUser = { id: Date.now(), firstName, lastName, username, email, password }
     setRegisteredUsers(prev => [...prev, newUser])
+    setFavorites([])
+    setMyRecipes([])
     setUser(newUser)
   }
 
@@ -19,6 +21,8 @@ export function AppProvider({ children }) {
       u => u.email === email && u.password === password
     )
     if (found) {
+      setFavorites(found.favorites ?? [])
+      setMyRecipes(found.myRecipes ?? [])
       setUser(found)
       return true
     }
@@ -26,6 +30,11 @@ export function AppProvider({ children }) {
   }
 
   function logout() {
+    setRegisteredUsers(prev =>
+      prev.map(u => u.id === user.id ? { ...u, favorites, myRecipes } : u)
+    )
+    setFavorites([])
+    setMyRecipes([])
     setUser(null)
   }
 

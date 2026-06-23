@@ -15,3 +15,9 @@ Ensure to utilize the `playwright` MCP server to supervise the development of th
 Finally the execution of this app should happen in phases, phases should correspond roughly to pages or major feature areas. I'll leave it to you to declare the number of phases and what their independent passing conditions are, but these conditions should be approved by me and allow me to provide you feedback before moving on into the next phase.
 
 Before writing any code, please confirm your understanding of the application by summarizing the user journey and listing the pages you plan to build.
+
+# Prompt to fix bug where new user can view and interact with the previous users' recipes
+
+While double checking the functionality of the app that was just created, I noticed a bug where a new user can see, edit, and delete the saved and created recipes from a previous user. Additionally when a user logs out and logs back in their favorites and created recipes are gone. I would like you to fix both issues without making any unnecessary changes to the existing code.
+
+Do you have any questions?
