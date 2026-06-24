@@ -1,0 +1,46 @@
+- generic [ref=e61]:
+  - generic [ref=e62]:
+    - generic [ref=e63]: 🍲
+    - generic [ref=e64]: Recipe Box
+  - generic [ref=e65]: Your Recipe
+  - navigation [ref=e66]:
+    - link "Home" [ref=e67] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e68] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e69] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e70] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e71] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e72] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e73] [cursor=pointer]
+  - generic [ref=e75]:
+    - generic [ref=e97]: Something went wrong saving your recipe. Please try again.
+    - generic [ref=e76]:
+      - generic [ref=e77]: Name of recipe
+      - textbox "e.g. Grandma's Lasagne" [ref=e78]: Playwright Test Pasta
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: Category
+        - textbox "e.g. Pasta" [ref=e82]: Pasta
+      - generic [ref=e83]:
+        - generic [ref=e84]: Prep Time
+        - textbox "e.g. 45 mins" [ref=e85]: 20 mins
+    - generic [ref=e86]:
+      - generic [ref=e87]: Ingredients
+      - paragraph [ref=e88]: One ingredient per line, e.g. "2 cups flour"
+      - textbox "2 cups flour 1 tsp salt 3 large eggs" [ref=e89]:
+        - /placeholder: "2 cups flour\n1 tsp salt\n3 large eggs"
+        - text: 200g spaghetti 2 eggs 100g parmesan 150g pancetta
+    - generic [ref=e90]:
+      - generic [ref=e91]: Instructions
+      - paragraph [ref=e92]: One step per line
+      - textbox "Preheat oven to 180°C. Mix dry ingredients together. Bake for 30 minutes." [ref=e93]:
+        - /placeholder: "Preheat oven to 180°C.\nMix dry ingredients together.\nBake for 30 minutes."
+        - text: Boil pasta until al dente. Fry pancetta until crispy. Mix eggs and parmesan. Combine all ingredients off the heat.
+    - generic [ref=e94]:
+      - button "Cancel" [ref=e95] [cursor=pointer]
+      - button "Save Recipe" [ref=e96] [cursor=pointer]

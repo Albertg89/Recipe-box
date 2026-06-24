@@ -27,7 +27,7 @@ function ingredientsToText(ingredients) {
 export default function CreateRecipe() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { createRecipe, updateRecipe } = useApp()
+  const { createRecipe, updateRecipe, loading } = useApp()
 
   const editRecipe = location.state?.recipe ?? null
   const isEditing = !!editRecipe
@@ -45,8 +45,9 @@ export default function CreateRecipe() {
     setForm(f => ({ ...f, [field]: value }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
+    if (loading.recipes) return
     setError('')
     if (!form.name.trim()) {
       setError('Please enter a recipe name.')
@@ -71,12 +72,16 @@ export default function CreateRecipe() {
       description:  '',
     }
 
-    if (isEditing) {
-      updateRecipe(editRecipe.id, payload)
-    } else {
-      createRecipe(payload)
+    try {
+      if (isEditing) {
+        await updateRecipe(editRecipe.id, payload)
+      } else {
+        await createRecipe(payload)
+      }
+      navigate('/my-recipes')
+    } catch {
+      setError('Something went wrong saving your recipe. Please try again.')
     }
-    navigate('/my-recipes')
   }
 
   return (
@@ -141,8 +146,8 @@ export default function CreateRecipe() {
           <button type="button" className="btn btn-secondary" onClick={() => navigate('/my-recipes')}>
             Cancel
           </button>
-          <button type="submit" className="btn btn-primary">
-            {isEditing ? 'Save Changes' : 'Save Recipe'}
+          <button type="submit" className="btn btn-primary" disabled={loading.recipes}>
+            {loading.recipes ? 'Saving…' : isEditing ? 'Save Changes' : 'Save Recipe'}
           </button>
         </div>
       </form>

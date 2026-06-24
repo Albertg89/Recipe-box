@@ -1,0 +1,43 @@
+- generic [ref=e62]:
+  - generic [ref=e63]:
+    - generic [ref=e64]: 🍲
+    - generic [ref=e65]: Recipe Box
+  - generic [ref=e66]: Your Recipe
+  - navigation [ref=e67]:
+    - link "Home" [ref=e68] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e69] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e70] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e71] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e72] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e73] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e74] [cursor=pointer]
+  - generic [ref=e76]:
+    - generic [ref=e77]:
+      - generic [ref=e78]: Name of recipe
+      - textbox "e.g. Grandma's Lasagne" [ref=e79]
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]: Category
+        - textbox "e.g. Pasta" [ref=e83]
+      - generic [ref=e84]:
+        - generic [ref=e85]: Prep Time
+        - textbox "e.g. 45 mins" [ref=e86]
+    - generic [ref=e87]:
+      - generic [ref=e88]: Ingredients
+      - paragraph [ref=e89]: One ingredient per line, e.g. "2 cups flour"
+      - textbox "2 cups flour 1 tsp salt 3 large eggs" [ref=e90]:
+        - /placeholder: "2 cups flour\n1 tsp salt\n3 large eggs"
+    - generic [ref=e91]:
+      - generic [ref=e92]: Instructions
+      - paragraph [ref=e93]: One step per line
+      - textbox "Preheat oven to 180°C. Mix dry ingredients together. Bake for 30 minutes." [ref=e94]:
+        - /placeholder: "Preheat oven to 180°C.\nMix dry ingredients together.\nBake for 30 minutes."
+    - generic [ref=e95]:
+      - button "Cancel" [ref=e96] [cursor=pointer]
+      - button "Save Recipe" [ref=e97] [cursor=pointer]

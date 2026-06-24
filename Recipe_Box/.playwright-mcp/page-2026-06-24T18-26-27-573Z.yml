@@ -1,0 +1,90 @@
+- generic [ref=e244]:
+  - generic [ref=e245]:
+    - generic [ref=e246]: 🍲
+    - generic [ref=e247]: Recipe Box
+  - generic [ref=e248]: Spaghetti Carbonara
+  - navigation [ref=e249]:
+    - link "Home" [ref=e250] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e251] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e252] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e253] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e254] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e255] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e256] [cursor=pointer]
+  - generic [ref=e258]:
+    - generic [ref=e259]:
+      - img "Spaghetti Carbonara" [ref=e261]
+      - generic [ref=e262]:
+        - paragraph [ref=e263]: A classic Roman pasta dish with crispy pancetta, silky eggs, and Parmesan. Rich and satisfying, ready in under 30 minutes.
+        - generic [ref=e264]:
+          - generic [ref=e265]: Pasta
+          - generic [ref=e266]: Italian
+          - generic [ref=e267]: ⏱ 30 mins
+        - button "Saved ✓" [active] [ref=e325] [cursor=pointer]
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - heading "Ingredients:" [level=3] [ref=e272]
+        - list [ref=e273]:
+          - listitem [ref=e274]:
+            - generic [ref=e275] [cursor=pointer]:
+              - checkbox "400g Spaghetti" [ref=e276]
+              - generic [ref=e277]:
+                - generic [ref=e278]: 400g
+                - text: Spaghetti
+          - listitem [ref=e279]:
+            - generic [ref=e280] [cursor=pointer]:
+              - checkbox "150g Pancetta" [ref=e281]
+              - generic [ref=e282]:
+                - generic [ref=e283]: 150g
+                - text: Pancetta
+          - listitem [ref=e284]:
+            - generic [ref=e285] [cursor=pointer]:
+              - checkbox "4 large Eggs" [ref=e286]
+              - generic [ref=e287]:
+                - generic [ref=e288]: 4 large
+                - text: Eggs
+          - listitem [ref=e289]:
+            - generic [ref=e290] [cursor=pointer]:
+              - checkbox "100g, grated Parmesan cheese" [ref=e291]
+              - generic [ref=e292]:
+                - generic [ref=e293]: 100g, grated
+                - text: Parmesan cheese
+          - listitem [ref=e294]:
+            - generic [ref=e295] [cursor=pointer]:
+              - checkbox "to taste Black pepper" [ref=e296]
+              - generic [ref=e297]:
+                - generic [ref=e298]: to taste
+                - text: Black pepper
+          - listitem [ref=e299]:
+            - generic [ref=e300] [cursor=pointer]:
+              - checkbox "to taste Salt" [ref=e301]
+              - generic [ref=e302]:
+                - generic [ref=e303]: to taste
+                - text: Salt
+      - generic [ref=e304]:
+        - heading "Step-by-Step Instructions:" [level=3] [ref=e305]
+        - list [ref=e306]:
+          - listitem [ref=e307]:
+            - generic [ref=e308]: Step 1
+            - generic [ref=e309]: Bring a large pot of heavily salted water to a boil. Cook spaghetti until al dente according to package directions.
+          - listitem [ref=e310]:
+            - generic [ref=e311]: Step 2
+            - generic [ref=e312]: Meanwhile, fry pancetta in a large skillet over medium heat until golden and crispy, about 5 minutes. Remove from heat.
+          - listitem [ref=e313]:
+            - generic [ref=e314]: Step 3
+            - generic [ref=e315]: In a bowl, whisk together eggs and grated Parmesan. Season generously with black pepper.
+          - listitem [ref=e316]:
+            - generic [ref=e317]: Step 4
+            - generic [ref=e318]: Reserve 1 cup of pasta cooking water, then drain the spaghetti.
+          - listitem [ref=e319]:
+            - generic [ref=e320]: Step 5
+            - generic [ref=e321]: Add hot pasta to the pancetta skillet. Off heat, pour egg mixture over pasta, tossing constantly and adding pasta water a splash at a time until a creamy sauce forms.
+          - listitem [ref=e322]:
+            - generic [ref=e323]: Step 6
+            - generic [ref=e324]: Serve immediately with extra Parmesan and freshly cracked pepper.

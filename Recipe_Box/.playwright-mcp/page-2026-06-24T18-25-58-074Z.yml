@@ -1,0 +1,30 @@
+- generic [ref=e160]:
+  - generic [ref=e161]:
+    - generic [ref=e162]: 🍲
+    - generic [ref=e163]: Recipe Box
+  - generic [ref=e164]: My Recipes
+  - navigation [ref=e165]:
+    - link "Home" [ref=e166] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e167] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e168] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e169] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e170] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e171] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e172] [cursor=pointer]
+  - generic [ref=e173]:
+    - button "+ Create New Recipe" [ref=e175] [cursor=pointer]
+    - list [ref=e176]:
+      - listitem [ref=e177]:
+        - button "Playwright Test Pasta · Pasta · 30 mins" [ref=e178] [cursor=pointer]:
+          - text: Playwright Test Pasta
+          - generic [ref=e179]: · Pasta
+          - generic [ref=e180]: · 30 mins
+        - generic [ref=e181]:
+          - button "Edit" [ref=e182] [cursor=pointer]
+          - button "Delete" [ref=e183] [cursor=pointer]

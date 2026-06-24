@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Recipe Box is a full-stack SPA for browsing, saving, and creating recipes. The frontend is React + Vite (in `Recipe_Box/`); the backend is Supabase (PostgreSQL + Auth), managed via the Supabase CLI in `supabase/`. Recipe browsing uses the external MealDB API.
+Recipe Box is a full-stack SPA for browsing, saving, and creating recipes. The frontend is React 19 + Vite (in `Recipe_Box/`); the backend is Supabase (PostgreSQL + Auth), managed via the Supabase CLI in `supabase/`. Recipe browsing uses the external MealDB API.
 
 ## Commands
 
@@ -26,15 +26,19 @@ npx supabase status           # show linked project info
 
 The Supabase project is already linked (ref: `gbatqjmnqlrxaqgjuyik`, name: Recipe_box).
 
+There is no test framework configured — no Jest, Vitest, or React Testing Library.
+
 ## Architecture
 
 ### Routing (`src/App.jsx`)
-All routes except `/` and `/auth` are wrapped in `<ProtectedRoute>`, which redirects unauthenticated users to `/auth`. Auth state comes from `AppContext`.
+React Router v7. All routes except `/` and `/auth` are wrapped in `<ProtectedRoute>`, which redirects unauthenticated users to `/auth`. Auth state comes from `AppContext`. Catch-all `*` renders `ErrorPage`.
 
 ### State management (`src/context/AppContext.jsx`)
 Single React context (`AppContext`) holds the entire app state: `user`, `favorites`, `myRecipes`, and `registeredUsers`. Exposes functions for auth (`register`, `login`, `logout`), profile (`updateProfile`, `deleteAccount`), favorites (`addFavorite`, `removeFavorite`, `isFavorite`), and user recipes (`createRecipe`, `updateRecipe`, `deleteRecipe`).
 
-**Current state:** Auth and data are stored in-memory only (no persistence between page reloads). Migration to Supabase Auth + database is planned.
+Consume via the `useApp()` hook (exported from `AppContext.jsx`) — do not use `useContext(AppContext)` directly.
+
+**Current state:** Auth and data are stored in-memory only (no persistence between page reloads). Migration to Supabase Auth + database is planned. There is no Supabase client file in `src/` yet — it needs to be created as part of the migration. Axios is installed but not yet used.
 
 ### Database schema (`supabase/reference/testing_schema.sql`)
 Three tables:
@@ -49,11 +53,12 @@ Each page in `src/pages/` has a paired `.css` file. Shared components live in `s
 - Color palette is fixed — do not deviate from `skeleton/pages/Design_colors.png`
 - All destructive actions (delete, remove) must show a confirmation modal (`ConfirmModal`) before executing
 - Error messages must be human-readable; never expose raw technical details
+- Error/success feedback uses local `useState` with string prefix convention: `"error: ..."` or `"ok: ..."` for conditional styling
 
 ### Data sources
 - **MealDB API** — external read-only API for Browse/RecipeDetail pages
 - **Supabase** — target backend for auth, favorites, and user-created recipes
-- `src/data/mockRecipes.js` — local mock data for development
+- `src/data/mockRecipes.js` — local mock data (100+ recipes) for development
 
 ### Wireframes
 Page wireframes are in `skeleton/pages/`. The full user journey is in `skeleton/user_journey.md`. Consult both when building or modifying pages.

@@ -28,7 +28,7 @@ export default function Auth() {
     navigate('/home')
   }
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault()
     setError('')
     const { email, password } = loginForm
@@ -36,7 +36,7 @@ export default function Auth() {
       setError('Please fill in all fields.')
       return
     }
-    const ok = login(email, password)
+    const ok = await login(email, password)
     if (ok) {
       navigate('/home')
     } else {

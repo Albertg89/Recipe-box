@@ -1,0 +1,45 @@
+- generic [ref=e123]:
+  - generic [ref=e124]:
+    - generic [ref=e125]: 🍲
+    - generic [ref=e126]: Recipe Box
+  - generic [ref=e127]: Your Recipe
+  - navigation [ref=e128]:
+    - link "Home" [ref=e129] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e130] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e131] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e132] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e133] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e134] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e135] [cursor=pointer]
+  - generic [ref=e137]:
+    - generic [ref=e138]:
+      - generic [ref=e139]: Name of recipe
+      - textbox "e.g. Grandma's Lasagne" [ref=e140]: Playwright Test Pasta
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - generic [ref=e143]: Category
+        - textbox "e.g. Pasta" [ref=e144]: Pasta
+      - generic [ref=e145]:
+        - generic [ref=e146]: Prep Time
+        - textbox "e.g. 45 mins" [ref=e147]: 20 mins
+    - generic [ref=e148]:
+      - generic [ref=e149]: Ingredients
+      - paragraph [ref=e150]: One ingredient per line, e.g. "2 cups flour"
+      - textbox "2 cups flour 1 tsp salt 3 large eggs" [ref=e151]:
+        - /placeholder: "2 cups flour\n1 tsp salt\n3 large eggs"
+        - text: 200g spaghetti 2 eggs 100g parmesan 150g pancetta
+    - generic [ref=e152]:
+      - generic [ref=e153]: Instructions
+      - paragraph [ref=e154]: One step per line
+      - textbox "Preheat oven to 180°C. Mix dry ingredients together. Bake for 30 minutes." [ref=e155]:
+        - /placeholder: "Preheat oven to 180°C.\nMix dry ingredients together.\nBake for 30 minutes."
+        - text: Boil pasta until al dente. Fry pancetta until crispy. Mix eggs and parmesan. Combine all off the heat.
+    - generic [ref=e156]:
+      - button "Cancel" [ref=e157] [cursor=pointer]
+      - button "Save Changes" [ref=e158] [cursor=pointer]

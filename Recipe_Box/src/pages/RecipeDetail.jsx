@@ -12,9 +12,10 @@ export default function RecipeDetail() {
   const [checked, setChecked] = useState({})
 
   const recipeId = parseInt(id, 10)
+  const isMyRecipe = myRecipes.some(r => r.id === recipeId)
   const recipe =
-    mockRecipes.find(r => r.id === recipeId) ||
-    myRecipes.find(r => r.id === recipeId)
+    myRecipes.find(r => r.id === recipeId) ||
+    mockRecipes.find(r => r.id === recipeId)
 
   if (!recipe) {
     return (
@@ -45,13 +46,15 @@ export default function RecipeDetail() {
 
         {/* Top section: image + meta */}
         <div className="recipe-top">
-          <div className="recipe-image-box">
-            {recipe.image ? (
-              <img src={recipe.image} alt={recipe.name} className="recipe-image" />
-            ) : (
-              <div className="recipe-image-placeholder">🍽️</div>
-            )}
-          </div>
+          {!isMyRecipe && (
+            <div className="recipe-image-box">
+              {recipe.image ? (
+                <img src={recipe.image} alt={recipe.name} className="recipe-image" />
+              ) : (
+                <div className="recipe-image-placeholder">🍽️</div>
+              )}
+            </div>
+          )}
 
           <div className="recipe-meta">
             <p className="recipe-description">{recipe.description}</p>
@@ -60,14 +63,16 @@ export default function RecipeDetail() {
               {recipe.area    && <span className="tag">{recipe.area}</span>}
               {recipe.prepTime && <span className="tag">⏱ {recipe.prepTime}</span>}
             </div>
-            <div className="recipe-save-row">
-              <button
-                className={`btn ${saved ? 'btn-inverted' : 'btn-primary'}`}
-                onClick={toggleFavorite}
-              >
-                {saved ? 'Saved ✓' : 'Save Recipe'}
-              </button>
-            </div>
+            {!isMyRecipe && (
+              <div className="recipe-save-row">
+                <button
+                  className={`btn ${saved ? 'btn-inverted' : 'btn-primary'}`}
+                  onClick={toggleFavorite}
+                >
+                  {saved ? 'Saved ✓' : 'Save Recipe'}
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

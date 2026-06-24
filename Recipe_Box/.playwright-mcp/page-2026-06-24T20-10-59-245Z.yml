@@ -1,0 +1,53 @@
+- generic [ref=e419]:
+  - generic [ref=e420]:
+    - generic [ref=e421]: 🍲
+    - generic [ref=e422]: Recipe Box
+  - generic [ref=e423]: My Special Tacos
+  - navigation [ref=e424]:
+    - link "Home" [ref=e425] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e426] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e427] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e428] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e429] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e430] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e431] [cursor=pointer]
+  - generic [ref=e433]:
+    - generic [ref=e435]:
+      - paragraph
+      - generic [ref=e436]:
+        - generic [ref=e437]: Mexican
+        - generic [ref=e438]: ⏱ 25 mins
+    - generic [ref=e439]:
+      - generic [ref=e440]:
+        - heading "Ingredients:" [level=3] [ref=e441]
+        - list [ref=e442]:
+          - listitem [ref=e443]:
+            - generic [ref=e444] [cursor=pointer]:
+              - checkbox "500g beef mince" [ref=e445]
+              - generic [ref=e446]: 500g beef mince
+          - listitem [ref=e447]:
+            - generic [ref=e448] [cursor=pointer]:
+              - checkbox "1 onion" [ref=e449]
+              - generic [ref=e450]: 1 onion
+          - listitem [ref=e451]:
+            - generic [ref=e452] [cursor=pointer]:
+              - checkbox "2 tsp cumin" [ref=e453]
+              - generic [ref=e454]: 2 tsp cumin
+      - generic [ref=e455]:
+        - heading "Step-by-Step Instructions:" [level=3] [ref=e456]
+        - list [ref=e457]:
+          - listitem [ref=e458]:
+            - generic [ref=e459]: Step 1
+            - generic [ref=e460]: Brown the beef mince.
+          - listitem [ref=e461]:
+            - generic [ref=e462]: Step 2
+            - generic [ref=e463]: Add onion and spices.
+          - listitem [ref=e464]:
+            - generic [ref=e465]: Step 3
+            - generic [ref=e466]: Serve in taco shells.

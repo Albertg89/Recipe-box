@@ -1,0 +1,26 @@
+- generic [ref=e660]:
+  - generic [ref=e661]:
+    - generic [ref=e662]: 🍲
+    - generic [ref=e663]: Recipe Box
+  - generic [ref=e664]: Welcome back, testuser!
+  - navigation [ref=e665]:
+    - link "Home" [ref=e666] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e667] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e668] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e669] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e670] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e671] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e672] [cursor=pointer]
+  - generic [ref=e673]:
+    - generic [ref=e674]:
+      - heading "Recent favorites:" [level=3] [ref=e675]
+      - button "Chicken Tikka Masala" [ref=e676] [cursor=pointer]
+    - generic [ref=e677]:
+      - heading "My Recipes:" [level=3] [ref=e678]
+      - button "Persistence Test Recipe" [ref=e679] [cursor=pointer]

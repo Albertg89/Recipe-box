@@ -7,17 +7,20 @@ import './Favorites.css'
 
 export default function Favorites() {
   const navigate = useNavigate()
-  const { favorites, removeFavorite } = useApp()
+  const { favorites, removeFavorite, loading, appError } = useApp()
   const [pendingDelete, setPendingDelete] = useState(null)
 
-  function handleDeleteConfirm() {
-    removeFavorite(pendingDelete)
+  async function handleDeleteConfirm() {
+    await removeFavorite(pendingDelete)
     setPendingDelete(null)
   }
 
   return (
     <PageShell banner="Your Favorites">
-      {favorites.length === 0 ? (
+      {appError && <div className="error-banner">{appError}</div>}
+      {loading.favorites ? (
+        <div className="favorites-empty"><p>Loading your favorites…</p></div>
+      ) : favorites.length === 0 ? (
         <div className="favorites-empty">
           <p>You haven't saved any recipes yet.</p>
           <button className="btn btn-primary" onClick={() => navigate('/browse')}>

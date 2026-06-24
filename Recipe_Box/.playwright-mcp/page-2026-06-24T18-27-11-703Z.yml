@@ -1,0 +1,22 @@
+- generic [ref=e327]:
+  - generic [ref=e328]:
+    - generic [ref=e329]: 🍲
+    - generic [ref=e330]: Recipe Box
+  - generic [ref=e331]: Your Favorites
+  - navigation [ref=e332]:
+    - link "Home" [ref=e333] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e334] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e335] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e336] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e337] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e338] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e339] [cursor=pointer]
+  - generic [ref=e341]:
+    - paragraph [ref=e355]: You haven't saved any recipes yet.
+    - button "Browse Recipes" [ref=e356] [cursor=pointer]

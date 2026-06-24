@@ -1,0 +1,12 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: 🍲
+    - generic [ref=e7]: Recipe Box
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - paragraph [ref=e10]:
+        - text: Welcome to
+        - strong [ref=e11]: Recipe Box
+        - text: — your warm, personal kitchen companion. Discover new recipes from around the world, save your favorites for later, and keep all your original creations in one tidy place.
+      - paragraph [ref=e12]: Ready to start cooking? Create a free account to get started, or log in if you've been here before. Your next great meal is just a few clicks away.
+    - button "Get started!" [ref=e14] [cursor=pointer]

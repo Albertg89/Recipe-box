@@ -1,0 +1,30 @@
+- generic [ref=e461]:
+  - generic [ref=e462]:
+    - generic [ref=e463]: 🍲
+    - generic [ref=e464]: Recipe Box
+  - generic [ref=e465]: My Recipes
+  - navigation [ref=e466]:
+    - link "Home" [ref=e467] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e468] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e469] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e470] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e471] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e472] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e473] [cursor=pointer]
+  - generic [ref=e474]:
+    - button "+ Create New Recipe" [ref=e476] [cursor=pointer]
+    - list [ref=e477]:
+      - listitem [ref=e478]:
+        - button "Persistence Test Recipe · Soup · 15 mins" [ref=e479] [cursor=pointer]:
+          - text: Persistence Test Recipe
+          - generic [ref=e480]: · Soup
+          - generic [ref=e481]: · 15 mins
+        - generic [ref=e482]:
+          - button "Edit" [ref=e483] [cursor=pointer]
+          - button "Delete" [ref=e484] [cursor=pointer]

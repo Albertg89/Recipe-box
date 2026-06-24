@@ -7,16 +7,17 @@ import './MyRecipes.css'
 
 export default function MyRecipes() {
   const navigate = useNavigate()
-  const { myRecipes, deleteRecipe } = useApp()
+  const { myRecipes, deleteRecipe, loading, appError } = useApp()
   const [pendingDelete, setPendingDelete] = useState(null)
 
-  function handleDeleteConfirm() {
-    deleteRecipe(pendingDelete)
+  async function handleDeleteConfirm() {
+    await deleteRecipe(pendingDelete)
     setPendingDelete(null)
   }
 
   return (
     <PageShell banner="My Recipes">
+      {appError && <div className="error-banner">{appError}</div>}
       <div className="my-recipes-header">
         <button
           className="btn btn-primary"
@@ -26,7 +27,9 @@ export default function MyRecipes() {
         </button>
       </div>
 
-      {myRecipes.length === 0 ? (
+      {loading.recipes ? (
+        <div className="my-recipes-empty"><p>Loading your recipes…</p></div>
+      ) : myRecipes.length === 0 ? (
         <div className="my-recipes-empty">
           <p>You haven't created any recipes yet.</p>
           <p>Click the button above to add your first original recipe!</p>

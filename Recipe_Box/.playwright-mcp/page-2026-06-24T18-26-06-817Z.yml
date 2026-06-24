@@ -1,0 +1,57 @@
+- generic [ref=e185]:
+  - generic [ref=e186]:
+    - generic [ref=e187]: 🍲
+    - generic [ref=e188]: Recipe Box
+  - generic [ref=e189]: Find your next meal!
+  - navigation [ref=e190]:
+    - link "Home" [ref=e191] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e192] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e193] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e194] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e195] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e196] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e197] [cursor=pointer]
+  - generic [ref=e198]:
+    - generic [ref=e199]:
+      - generic [ref=e200]: "Type a keyword for search:"
+      - generic [ref=e201]:
+        - searchbox "e.g. chicken, pasta, Italian…" [ref=e202]
+        - button "Search" [ref=e203] [cursor=pointer]
+    - generic [ref=e204]:
+      - button "Spaghetti Carbonara Spaghetti Carbonara Italian · Pasta" [ref=e205] [cursor=pointer]:
+        - img "Spaghetti Carbonara" [ref=e207]
+        - generic [ref=e208]:
+          - generic [ref=e209]: Spaghetti Carbonara
+          - generic [ref=e210]: Italian · Pasta
+      - button "Chicken Tikka Masala Chicken Tikka Masala Indian · Chicken" [ref=e211] [cursor=pointer]:
+        - img "Chicken Tikka Masala" [ref=e213]
+        - generic [ref=e214]:
+          - generic [ref=e215]: Chicken Tikka Masala
+          - generic [ref=e216]: Indian · Chicken
+      - button "Beef Tacos Beef Tacos Mexican · Beef" [ref=e217] [cursor=pointer]:
+        - img "Beef Tacos" [ref=e219]
+        - generic [ref=e220]:
+          - generic [ref=e221]: Beef Tacos
+          - generic [ref=e222]: Mexican · Beef
+      - button "Greek Salad Greek Salad Greek · Vegetarian" [ref=e223] [cursor=pointer]:
+        - img "Greek Salad" [ref=e225]
+        - generic [ref=e226]:
+          - generic [ref=e227]: Greek Salad
+          - generic [ref=e228]: Greek · Vegetarian
+      - button "Shrimp Fried Rice Shrimp Fried Rice Thai · Seafood" [ref=e229] [cursor=pointer]:
+        - img "Shrimp Fried Rice" [ref=e231]
+        - generic [ref=e232]:
+          - generic [ref=e233]: Shrimp Fried Rice
+          - generic [ref=e234]: Thai · Seafood
+      - button "Classic Cheeseburger Classic Cheeseburger American · Beef" [ref=e235] [cursor=pointer]:
+        - img "Classic Cheeseburger" [ref=e237]
+        - generic [ref=e238]:
+          - generic [ref=e239]: Classic Cheeseburger
+          - generic [ref=e240]: American · Beef
+    - button "Load more recipes" [ref=e242] [cursor=pointer]

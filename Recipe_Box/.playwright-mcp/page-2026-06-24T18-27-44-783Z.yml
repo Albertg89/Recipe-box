@@ -1,0 +1,36 @@
+- generic [ref=e358]:
+  - generic [ref=e359]:
+    - generic [ref=e360]: 🍲
+    - generic [ref=e361]: Recipe Box
+  - generic [ref=e362]: Your Profile
+  - navigation [ref=e363]:
+    - link "Home" [ref=e364] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e365] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e366] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e367] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e368] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e369] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e370] [cursor=pointer]
+  - generic [ref=e372]:
+    - generic [ref=e373]:
+      - heading "Personal Information:" [level=3] [ref=e374]
+      - generic [ref=e375]:
+        - textbox "first_name" [ref=e376]: Updated
+        - textbox "last_name" [ref=e377]: User
+        - textbox "email" [ref=e378]: test@recipebox.com
+        - textbox "password (leave blank to keep current)" [ref=e379]
+      - paragraph [ref=e388]: Your profile has been updated.
+    - generic [ref=e380]:
+      - heading "List of original recipes:" [level=3] [ref=e381]
+      - list [ref=e382]:
+        - listitem [ref=e383]:
+          - button "Playwright Test Pasta" [ref=e384] [cursor=pointer]
+    - generic [ref=e385]:
+      - button "Delete Account" [ref=e386] [cursor=pointer]
+      - button "Save Changes" [ref=e387] [cursor=pointer]

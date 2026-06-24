@@ -7,7 +7,7 @@ import './Profile.css'
 
 export default function Profile() {
   const navigate = useNavigate()
-  const { user, myRecipes, updateProfile, deleteAccount } = useApp()
+  const { user, myRecipes, updateProfile, deleteAccount, loading } = useApp()
 
   const [form, setForm] = useState({
     firstName: user?.firstName ?? '',
@@ -23,7 +23,7 @@ export default function Profile() {
     setSaveMessage('')
   }
 
-  function handleSave(e) {
+  async function handleSave(e) {
     e.preventDefault()
     if (!form.firstName.trim() || !form.lastName.trim() || !form.email.trim()) {
       setSaveMessage('error:Please fill in all required fields.')
@@ -37,9 +37,13 @@ export default function Profile() {
     if (form.password.trim()) {
       updates.password = form.password.trim()
     }
-    updateProfile(updates)
-    setForm(f => ({ ...f, password: '' }))
-    setSaveMessage('ok:Your profile has been updated.')
+    try {
+      await updateProfile(updates)
+      setForm(f => ({ ...f, password: '' }))
+      setSaveMessage('ok:Your profile has been updated.')
+    } catch {
+      setSaveMessage('error:Could not save changes. Please try again.')
+    }
   }
 
   function handleDeleteConfirm() {
@@ -117,8 +121,8 @@ export default function Profile() {
           >
             Delete Account
           </button>
-          <button type="submit" className="btn btn-primary">
-            Save Changes
+          <button type="submit" className="btn btn-primary" disabled={loading.profile}>
+            {loading.profile ? 'Saving…' : 'Save Changes'}
           </button>
         </div>
       </form>

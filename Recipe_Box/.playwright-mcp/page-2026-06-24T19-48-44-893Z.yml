@@ -1,0 +1,26 @@
+- generic [ref=e21]:
+  - generic [ref=e22]:
+    - generic [ref=e23]: 🍲
+    - generic [ref=e24]: Recipe Box
+  - generic [ref=e25]: Welcome back, bugfix!
+  - navigation [ref=e26]:
+    - link "Home" [ref=e27] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e28] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e29] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e30] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e31] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e32] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e33] [cursor=pointer]
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - heading "Recent favorites:" [level=3] [ref=e36]
+      - paragraph [ref=e37]: No favorites yet — browse recipes to save some!
+    - generic [ref=e38]:
+      - heading "My Recipes:" [level=3] [ref=e39]
+      - paragraph [ref=e40]: No original recipes yet — create your first one!

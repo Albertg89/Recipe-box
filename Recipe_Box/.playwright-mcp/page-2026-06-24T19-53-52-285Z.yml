@@ -1,0 +1,30 @@
+- generic [ref=e177]:
+  - generic [ref=e178]:
+    - generic [ref=e179]: 🍲
+    - generic [ref=e180]: Recipe Box
+  - generic [ref=e181]: My Recipes
+  - navigation [ref=e182]:
+    - link "Home" [ref=e183] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e184] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e185] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e186] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e187] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e188] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e189] [cursor=pointer]
+  - generic [ref=e190]:
+    - button "+ Create New Recipe" [ref=e192] [cursor=pointer]
+    - list [ref=e193]:
+      - listitem [ref=e194]:
+        - button "My Special Tacos · Mexican · 25 mins" [ref=e195] [cursor=pointer]:
+          - text: My Special Tacos
+          - generic [ref=e196]: · Mexican
+          - generic [ref=e197]: · 25 mins
+        - generic [ref=e198]:
+          - button "Edit" [ref=e199] [cursor=pointer]
+          - button "Delete" [ref=e200] [cursor=pointer]

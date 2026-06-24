@@ -1,0 +1,56 @@
+- generic [ref=e124]:
+  - generic [ref=e125]:
+    - generic [ref=e126]: 🍲
+    - generic [ref=e127]: Recipe Box
+  - generic [ref=e128]: My Special Tacos
+  - navigation [ref=e129]:
+    - link "Home" [ref=e130] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e131] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e132] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e133] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e134] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e135] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e136] [cursor=pointer]
+  - generic [ref=e138]:
+    - generic [ref=e139]:
+      - generic [ref=e141]: 🍽️
+      - generic [ref=e142]:
+        - paragraph
+        - generic [ref=e143]:
+          - generic [ref=e144]: Mexican
+          - generic [ref=e145]: ⏱ 25 mins
+        - button "Save Recipe" [ref=e147] [cursor=pointer]
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - heading "Ingredients:" [level=3] [ref=e150]
+        - list [ref=e151]:
+          - listitem [ref=e152]:
+            - generic [ref=e153] [cursor=pointer]:
+              - checkbox "500g beef mince" [ref=e154]
+              - generic [ref=e155]: 500g beef mince
+          - listitem [ref=e156]:
+            - generic [ref=e157] [cursor=pointer]:
+              - checkbox "1 onion" [ref=e158]
+              - generic [ref=e159]: 1 onion
+          - listitem [ref=e160]:
+            - generic [ref=e161] [cursor=pointer]:
+              - checkbox "2 tsp cumin" [ref=e162]
+              - generic [ref=e163]: 2 tsp cumin
+      - generic [ref=e164]:
+        - heading "Step-by-Step Instructions:" [level=3] [ref=e165]
+        - list [ref=e166]:
+          - listitem [ref=e167]:
+            - generic [ref=e168]: Step 1
+            - generic [ref=e169]: Brown the beef mince.
+          - listitem [ref=e170]:
+            - generic [ref=e171]: Step 2
+            - generic [ref=e172]: Add onion and spices.
+          - listitem [ref=e173]:
+            - generic [ref=e174]: Step 3
+            - generic [ref=e175]: Serve in taco shells.
