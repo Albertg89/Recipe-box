@@ -38,7 +38,7 @@ Single React context (`AppContext`) holds the entire app state: `user`, `favorit
 
 Consume via the `useApp()` hook (exported from `AppContext.jsx`) — do not use `useContext(AppContext)` directly.
 
-**Current state:** Auth and data are stored in-memory only (no persistence between page reloads). Migration to Supabase Auth + database is planned. There is no Supabase client file in `src/` yet — it needs to be created as part of the migration. Axios is installed but not yet used.
+**Current state:** Auth is in-memory + localStorage (no Supabase Auth SDK). Data reads/writes use `src/services/api.js` — an Axios instance that calls the Supabase REST API directly. Supabase Auth integration is still pending.
 
 ### Database schema (`supabase/reference/testing_schema.sql`)
 Three tables:

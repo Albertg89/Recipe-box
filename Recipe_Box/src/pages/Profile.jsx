@@ -13,7 +13,6 @@ export default function Profile() {
     firstName: user?.firstName ?? '',
     lastName:  user?.lastName  ?? '',
     email:     user?.email     ?? '',
-    password:  '',
   })
   const [saveMessage, setSaveMessage] = useState('')
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -34,12 +33,8 @@ export default function Profile() {
       lastName:  form.lastName.trim(),
       email:     form.email.trim(),
     }
-    if (form.password.trim()) {
-      updates.password = form.password.trim()
-    }
     try {
       await updateProfile(updates)
-      setForm(f => ({ ...f, password: '' }))
       setSaveMessage('ok:Your profile has been updated.')
     } catch {
       setSaveMessage('error:Could not save changes. Please try again.')
@@ -78,12 +73,6 @@ export default function Profile() {
               placeholder="email"
               value={form.email}
               onChange={e => set('email', e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="password (leave blank to keep current)"
-              value={form.password}
-              onChange={e => set('password', e.target.value)}
             />
           </div>
 

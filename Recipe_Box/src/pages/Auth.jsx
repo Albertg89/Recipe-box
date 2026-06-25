@@ -10,13 +10,14 @@ export default function Auth() {
 
   const [mode, setMode] = useState('signup')
   const [error, setError] = useState('')
+  const [awaitingConfirmation, setAwaitingConfirmation] = useState(false)
 
   const [signupForm, setSignupForm] = useState({
     firstName: '', lastName: '', username: '', email: '', password: '',
   })
   const [loginForm, setLoginForm] = useState({ email: '', password: '' })
 
-  function handleSignup(e) {
+  async function handleSignup(e) {
     e.preventDefault()
     setError('')
     const { firstName, lastName, username, email, password } = signupForm
@@ -24,8 +25,16 @@ export default function Auth() {
       setError('Please fill in all fields.')
       return
     }
-    register({ firstName, lastName, username, email, password })
-    navigate('/home')
+    try {
+      const result = await register({ firstName, lastName, username, email, password })
+      if (result.needsConfirmation) {
+        setAwaitingConfirmation(true)
+        return
+      }
+      navigate('/home')
+    } catch (err) {
+      setError(err.message ?? 'Registration failed. Please try again.')
+    }
   }
 
   async function handleLogin(e) {
@@ -47,6 +56,26 @@ export default function Auth() {
   function switchMode(next) {
     setMode(next)
     setError('')
+    setAwaitingConfirmation(false)
+  }
+
+  if (awaitingConfirmation) {
+    return (
+      <div className="auth-wrapper">
+        <div className="auth-card">
+          <Logo />
+          <div className="auth-body">
+            <p className="auth-confirmation-msg">
+              Check your email and click the confirmation link to activate your account, then{' '}
+              <button type="button" className="auth-toggle-btn" onClick={() => switchMode('login')}>
+                log in
+              </button>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

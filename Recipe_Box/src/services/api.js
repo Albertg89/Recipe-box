@@ -1,12 +1,20 @@
 import axios from 'axios'
+import { supabase } from '../lib/supabase.js'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_SUPABASE_URL,
+  baseURL: `${import.meta.env.VITE_SUPABASE_URL}/rest/v1`,
   headers: {
     apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
-    Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
     'Content-Type': 'application/json',
   },
+})
+
+api.interceptors.request.use(async (config) => {
+  const { data: { session } } = await supabase.auth.getSession()
+  if (session?.access_token) {
+    config.headers.Authorization = `Bearer ${session.access_token}`
+  }
+  return config
 })
 
 export default api

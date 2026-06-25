@@ -14,7 +14,8 @@ import Contact      from './pages/Contact.jsx'
 import ErrorPage    from './pages/Error.jsx'
 
 function ProtectedRoute({ children }) {
-  const { user } = useApp()
+  const { user, initialized } = useApp()
+  if (!initialized) return null
   return user ? children : <Navigate to="/auth" replace />
 }
 

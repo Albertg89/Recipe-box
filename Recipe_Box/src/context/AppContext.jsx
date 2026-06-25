@@ -1,61 +1,32 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from 'react'
-import * as recipeService from '../services/recipeService.js'
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { supabase } from '../lib/supabase.js'
+import * as recipeService    from '../services/recipeService.js'
 import * as favoritesService from '../services/favoritesService.js'
-import * as userService from '../services/userService.js'
+import * as userService      from '../services/userService.js'
 
 const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
-  const [user, setUser] = useState(null)
-  const [registeredUsers, setRegisteredUsers] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('registeredUsers') ?? '[]')
-    } catch {
-      return []
-    }
-  })
+  const [user, setUser]           = useState(null)
+  const [initialized, setInitialized] = useState(false)
   const [favorites, setFavorites] = useState([])
   const [myRecipes, setMyRecipes] = useState([])
-  const [loading, setLoading] = useState({ recipes: false, favorites: false, profile: false })
-  const [appError, setAppError] = useState(null)
-
-  useEffect(() => {
-    localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers))
-  }, [registeredUsers])
+  const [loading, setLoading]     = useState({ recipes: false, favorites: false, profile: false })
+  const [appError, setAppError]   = useState(null)
 
   function setLoadingKey(key, value) {
     setLoading(prev => ({ ...prev, [key]: value }))
   }
 
-  // ── Auth (in-memory only, Supabase auth not yet implemented) ──────────────
-
-  function register({ firstName, lastName, username, email, password }) {
-    const newUser = { id: crypto.randomUUID(), firstName, lastName, username, email, password }
-    setRegisteredUsers(prev => [...prev, newUser])
-    setFavorites([])
-    setMyRecipes([])
-    setUser(newUser)
-    userService.createUser(newUser).catch(err =>
-      console.error('Failed to create user in Supabase:', err)
-    )
-  }
-
-  async function login(email, password) {
-    const found = registeredUsers.find(
-      u => u.email === email && u.password === password
-    )
-    if (!found) return false
-
-    setUser(found)
-
+  const loadUserData = useCallback(async (userId) => {
     setLoadingKey('recipes', true)
     setLoadingKey('favorites', true)
     setAppError(null)
     try {
       const [recipes, favs] = await Promise.all([
-        recipeService.getRecipes(found.id),
-        favoritesService.getFavorites(found.id),
+        recipeService.getRecipes(userId),
+        favoritesService.getFavorites(userId),
       ])
       setMyRecipes(recipes)
       setFavorites(favs)
@@ -66,25 +37,84 @@ export function AppProvider({ children }) {
       setLoadingKey('recipes', false)
       setLoadingKey('favorites', false)
     }
+  }, [])
+
+  // ── Session restore + auth state listener ────────────────────────────────
+
+  useEffect(() => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (session?.user) {
+        const profile = await userService.getUser(session.user.id)
+        if (profile) {
+          setUser({
+            id:        profile.id,
+            firstName: profile.first_name,
+            lastName:  profile.last_name,
+            username:  profile.user_name,
+            email:     profile.email,
+          })
+          await loadUserData(profile.id)
+        }
+      }
+      setInitialized(true)
+    })
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) {
+        setUser(null)
+        setFavorites([])
+        setMyRecipes([])
+        setAppError(null)
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [loadUserData])
+
+  // ── Auth ─────────────────────────────────────────────────────────────────
+
+  async function register({ firstName, lastName, username, email, password }) {
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (error) throw error
+    if (!data.session) return { needsConfirmation: true }
+
+    await userService.createUser({ id: data.user.id, firstName, lastName, username, email })
+    setUser({ id: data.user.id, firstName, lastName, username, email })
+    setFavorites([])
+    setMyRecipes([])
+    return { needsConfirmation: false }
+  }
+
+  async function login(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) return false
+
+    const profile = await userService.getUser(data.user.id)
+    setUser({
+      id:        data.user.id,
+      firstName: profile.first_name,
+      lastName:  profile.last_name,
+      username:  profile.user_name,
+      email:     profile.email,
+    })
+    await loadUserData(data.user.id)
     return true
   }
 
-  function logout() {
-    setFavorites([])
-    setMyRecipes([])
-    setUser(null)
-    setAppError(null)
+  async function logout() {
+    await supabase.auth.signOut()
+    // State cleanup handled by onAuthStateChange listener
   }
 
   async function updateProfile(changes) {
     const updated = { ...user, ...changes }
     setUser(updated)
-    setRegisteredUsers(prev => prev.map(u => (u.id === user.id ? updated : u)))
 
     setLoadingKey('profile', true)
     try {
       await userService.updateUser(user.id, changes)
     } catch (err) {
+      setUser(user)
       console.error(err)
       throw err
     } finally {
@@ -92,10 +122,11 @@ export function AppProvider({ children }) {
     }
   }
 
-  function deleteAccount() {
-    setUser(null)
-    setFavorites([])
-    setMyRecipes([])
+  async function deleteAccount() {
+    // Signs out on the client. Full auth.users deletion requires a server-side
+    // Edge Function with service_role key — the ON DELETE CASCADE will clean up
+    // public.users, recipes, and favorites when that is wired up.
+    await supabase.auth.signOut()
   }
 
   // ── Favorites ─────────────────────────────────────────────────────────────
@@ -185,7 +216,7 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider value={{
       user,
-      registeredUsers,
+      initialized,
       favorites,
       myRecipes,
       loading,

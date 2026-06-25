@@ -1,0 +1,3 @@
+id,user_id,title,category,cuisine,ingredients,instructions,created_at,updated_at,prep_time,image
+3,0bba5a16-171e-4925-a0bc-7e2ac06dd76e,Persistence Test Recipe,Soup,,"[{""name"":""1 can tomatoes"",""measure"":""""},{""name"":""1 onion"",""measure"":""""},{""name"":""2 cloves garlic"",""measure"":""""}]","[""Saute onion and garlic."",""Add tomatoes and simmer 10 minutes.""]",2026-06-24 18:28:37.729597+00,2026-06-24 18:28:37.729597+00,15 mins,
+4,35b33b41-ed4d-463b-bc18-2274735abc8d,checking if this works,test,,"[{""name"":""testing"",""measure"":""""}]","[""testing""]",2026-06-24 19:24:58.704168+00,2026-06-24 19:24:58.704168+00,45 min,
