@@ -1,0 +1,24 @@
+- generic [ref=e236]:
+  - generic [ref=e237]:
+    - generic [ref=e238]: 🍲
+    - generic [ref=e239]: Recipe Box
+  - generic [ref=e240]: My Recipes
+  - navigation [ref=e241]:
+    - link "Home" [ref=e242] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e243] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e244] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e245] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e246] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e247] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e248] [cursor=pointer]
+  - generic [ref=e249]:
+    - button "+ Create New Recipe" [ref=e251] [cursor=pointer]
+    - generic [ref=e252]:
+      - paragraph [ref=e253]: You haven't created any recipes yet.
+      - paragraph [ref=e254]: Click the button above to add your first original recipe!

@@ -1,0 +1,14 @@
+- generic [ref=e75]:
+  - generic [ref=e76]:
+    - generic [ref=e77]: 🍲
+    - generic [ref=e78]: Recipe Box
+  - generic [ref=e79]:
+    - generic [ref=e87]: Invalid email or password. Please try again.
+    - generic [ref=e80]:
+      - textbox "email" [ref=e81]: jane.smith@recipebox.com
+      - textbox "password" [ref=e82]: WrongPassword!
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - text: New here?
+          - button "Sign up" [ref=e85] [cursor=pointer]
+        - button "Submit" [active] [ref=e86] [cursor=pointer]

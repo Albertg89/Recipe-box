@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useApp } from '../context/AppContext.jsx'
 import Logo from '../components/Logo.jsx'
 import './Auth.css'
 
 export default function Auth() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { register, login } = useApp()
 
-  const [mode, setMode] = useState('signup')
+  const [mode, setMode] = useState(location.state?.mode ?? 'signup')
   const [error, setError] = useState('')
   const [awaitingConfirmation, setAwaitingConfirmation] = useState(false)
 

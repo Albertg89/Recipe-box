@@ -1,0 +1,26 @@
+- generic [ref=e54]:
+  - generic [ref=e55]:
+    - generic [ref=e56]: 🍲
+    - generic [ref=e57]: Recipe Box
+  - generic [ref=e58]: Welcome back, janesmith!
+  - navigation [ref=e59]:
+    - link "Home" [ref=e60] [cursor=pointer]:
+      - /url: /home
+    - link "Browse" [ref=e61] [cursor=pointer]:
+      - /url: /browse
+    - link "Favorites" [ref=e62] [cursor=pointer]:
+      - /url: /favorites
+    - link "My Recipes" [ref=e63] [cursor=pointer]:
+      - /url: /my-recipes
+    - link "Profile" [ref=e64] [cursor=pointer]:
+      - /url: /profile
+    - link "Contact" [ref=e65] [cursor=pointer]:
+      - /url: /contact
+    - button "Logout" [ref=e66] [cursor=pointer]
+  - generic [ref=e67]:
+    - generic [ref=e68]:
+      - heading "Recent favorites:" [level=3] [ref=e69]
+      - paragraph [ref=e70]: No favorites yet — browse recipes to save some!
+    - generic [ref=e71]:
+      - heading "My Recipes:" [level=3] [ref=e72]
+      - paragraph [ref=e73]: No original recipes yet — create your first one!

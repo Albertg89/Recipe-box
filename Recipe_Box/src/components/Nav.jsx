@@ -8,7 +8,7 @@ export default function Nav() {
 
   function handleLogout() {
     logout()
-    navigate('/auth')
+    navigate('/auth', { state: { mode: 'login' } })
   }
 
   const linkClass = ({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`

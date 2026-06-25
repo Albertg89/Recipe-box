@@ -8,7 +8,7 @@ The user should be able to conduct the following actions:
 - A new user should be capable of registering an account. Upon registration, they should be logged in and routed to the home page.
 - A returning user should be able to log in and be routed to the homepage on success.
 - Failure to authenticate upon submitting either for registration and/or log in, the user should be advised of the errors and allowed to re-attempt log in and/or registration.
-- An authenticated user should only be able to view their own recipes and (Help me out here Claude)
+- An authenticated user should only be able to view, create, edit, and delete their own recipes and saved favorites. They should never have access to another user's data.
 - Upon refresh, an authenticated user should remain authenticated and be routed to their last visited page prior to refresh
 - An authenticated user should be able to log out of the application and be returned to the log in page, NOT the sign up page.
 
