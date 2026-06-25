@@ -1,38 +1,78 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageShell from '../components/PageShell.jsx'
-import { mockRecipes } from '../data/mockRecipes.js'
+import * as mealdbService from '../services/mealdbService.js'
 import './Browse.css'
-
-const PAGE_SIZE = 6
 
 export default function Browse() {
   const navigate = useNavigate()
   const [query, setQuery] = useState('')
   const [activeQuery, setActiveQuery] = useState('')
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [error, setError] = useState('')
 
-  const filtered = activeQuery
-    ? mockRecipes.filter(r =>
-        r.name.toLowerCase().includes(activeQuery.toLowerCase()) ||
-        r.category.toLowerCase().includes(activeQuery.toLowerCase()) ||
-        r.area.toLowerCase().includes(activeQuery.toLowerCase())
-      )
-    : mockRecipes
+  useEffect(() => {
+    let cancelled = false
+    mealdbService.getRandomBatch(12)
+      .then(meals => {
+        if (!cancelled) setResults(meals)
+      })
+      .catch(() => {
+        if (!cancelled) setError('Could not load recipes. Please try again.')
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [])
 
-  const displayed = activeQuery ? filtered : filtered.slice(0, visibleCount)
-  const hasMore = !activeQuery && visibleCount < mockRecipes.length
-
-  function handleSearch(e) {
+  async function handleSearch(e) {
     e.preventDefault()
-    setActiveQuery(query.trim())
-    setVisibleCount(PAGE_SIZE)
+    const q = query.trim()
+    if (!q) return
+    setActiveQuery(q)
+    setError('')
+    setLoading(true)
+    try {
+      const meals = await mealdbService.search(q)
+      setResults(meals)
+    } catch {
+      setError('Could not load recipes. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
-  function handleClear() {
+  async function handleClear() {
     setActiveQuery('')
     setQuery('')
-    setVisibleCount(PAGE_SIZE)
+    setError('')
+    setLoading(true)
+    try {
+      const meals = await mealdbService.getRandomBatch(12)
+      setResults(meals)
+    } catch {
+      setError('Could not load recipes. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  async function handleLoadMore() {
+    setLoadingMore(true)
+    try {
+      const more = await mealdbService.getRandomBatch(12)
+      setResults(prev => {
+        const seen = new Set(prev.map(r => r.id))
+        return [...prev, ...more.filter(r => !seen.has(r.id))]
+      })
+    } catch {
+      // silently ignore load-more failures
+    } finally {
+      setLoadingMore(false)
+    }
   }
 
   return (
@@ -54,48 +94,58 @@ export default function Browse() {
       {activeQuery && (
         <div className="browse-results-meta">
           <span>
-            {filtered.length === 0
+            {results.length === 0
               ? `No results for "${activeQuery}"`
-              : `${filtered.length} result${filtered.length !== 1 ? 's' : ''} for "${activeQuery}"`}
+              : `${results.length} result${results.length !== 1 ? 's' : ''} for "${activeQuery}"`}
           </span>
           <button className="browse-clear-btn" onClick={handleClear}>Clear search</button>
         </div>
       )}
 
-      {displayed.length === 0 ? (
+      {error && <p className="browse-no-results">{error}</p>}
+
+      {loading ? (
+        <p className="browse-no-results">Loading recipes…</p>
+      ) : results.length === 0 && !error ? (
         <p className="browse-no-results">
           No recipes matched your search. Try a different keyword.
         </p>
       ) : (
-        <div className="browse-grid">
-          {displayed.map(recipe => (
-            <button
-              key={recipe.id}
-              className="recipe-card"
-              onClick={() => navigate(`/recipe/${recipe.id}`)}
-            >
-              <div className="recipe-card-img">
-                <img
-                  src={recipe.image}
-                  alt={recipe.name}
-                  onError={e => { e.target.style.display = 'none' }}
-                />
-              </div>
-              <div className="recipe-card-footer">
-                <span className="recipe-card-name">{recipe.name}</span>
-                <span className="recipe-card-meta">{recipe.area} · {recipe.category}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      )}
+        <>
+          <div className="browse-grid">
+            {results.map(recipe => (
+              <button
+                key={recipe.id}
+                className="recipe-card"
+                onClick={() => navigate(`/recipe/${recipe.id}`)}
+              >
+                <div className="recipe-card-img">
+                  <img
+                    src={recipe.image}
+                    alt={recipe.name}
+                    onError={e => { e.target.style.display = 'none' }}
+                  />
+                </div>
+                <div className="recipe-card-footer">
+                  <span className="recipe-card-name">{recipe.name}</span>
+                  <span className="recipe-card-meta">{recipe.area} · {recipe.category}</span>
+                </div>
+              </button>
+            ))}
+          </div>
 
-      {hasMore && (
-        <div className="browse-load-more">
-          <button className="btn btn-secondary" onClick={() => setVisibleCount(c => c + PAGE_SIZE)}>
-            Load more recipes
-          </button>
-        </div>
+          {!activeQuery && (
+            <div className="browse-load-more">
+              <button
+                className="btn btn-secondary"
+                onClick={handleLoadMore}
+                disabled={loadingMore}
+              >
+                {loadingMore ? 'Loading…' : 'Load more recipes'}
+              </button>
+            </div>
+          )}
+        </>
       )}
     </PageShell>
   )

@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext.jsx'
 import PageShell from '../components/PageShell.jsx'
-import { mockRecipes } from '../data/mockRecipes.js'
+import * as mealdbService from '../services/mealdbService.js'
 import './RecipeDetail.css'
 
 export default function RecipeDetail() {
@@ -10,18 +10,45 @@ export default function RecipeDetail() {
   const navigate = useNavigate()
   const { isFavorite, addFavorite, removeFavorite, myRecipes } = useApp()
   const [checked, setChecked] = useState({})
+  const [mealdbRecipe, setMealdbRecipe] = useState(null)
+  const [fetchDone, setFetchDone] = useState(false)
+  const [error, setError] = useState('')
 
-  const recipeId = parseInt(id, 10)
-  const isMyRecipe = myRecipes.some(r => r.id === recipeId)
-  const recipe =
-    myRecipes.find(r => r.id === recipeId) ||
-    mockRecipes.find(r => r.id === recipeId)
+  const recipeId   = parseInt(id, 10)
+  const userRecipe = myRecipes.find(r => r.id === recipeId)
+  const isMyRecipe = Boolean(userRecipe)
+  const recipe     = userRecipe ?? mealdbRecipe
+  const loading    = !userRecipe && !fetchDone
 
-  if (!recipe) {
+  useEffect(() => {
+    if (userRecipe) return
+    let cancelled = false
+    mealdbService.getById(recipeId)
+      .then(meal => {
+        if (!cancelled) setMealdbRecipe(meal)
+      })
+      .catch(() => {
+        if (!cancelled) setError('Could not load this recipe. Please try again.')
+      })
+      .finally(() => {
+        if (!cancelled) setFetchDone(true)
+      })
+    return () => { cancelled = true }
+  }, [recipeId, userRecipe])
+
+  if (loading) {
+    return (
+      <PageShell banner="Loading…">
+        <p className="browse-no-results">Loading recipe…</p>
+      </PageShell>
+    )
+  }
+
+  if (error || (!loading && !recipe)) {
     return (
       <PageShell banner="Recipe Not Found">
         <div className="recipe-not-found">
-          <p>This recipe doesn't exist or may have been removed.</p>
+          <p>{error || "This recipe doesn't exist or may have been removed."}</p>
           <button className="btn btn-primary" onClick={() => navigate('/browse')}>
             Back to Browse
           </button>
@@ -60,7 +87,7 @@ export default function RecipeDetail() {
             <p className="recipe-description">{recipe.description}</p>
             <div className="recipe-tags">
               {recipe.category && <span className="tag">{recipe.category}</span>}
-              {recipe.area    && <span className="tag">{recipe.area}</span>}
+              {recipe.area     && <span className="tag">{recipe.area}</span>}
               {recipe.prepTime && <span className="tag">⏱ {recipe.prepTime}</span>}
             </div>
             {!isMyRecipe && (
