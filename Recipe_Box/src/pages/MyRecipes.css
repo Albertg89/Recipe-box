@@ -1,25 +1,33 @@
 .my-recipes-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .my-recipes-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 3rem 0;
+  gap: 0.75rem;
+  padding: 3.5rem 0;
   color: var(--neutral-mid);
-  font-size: 0.95rem;
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  font-style: italic;
   text-align: center;
+}
+
+.my-recipes-empty::before {
+  content: '📝';
+  font-size: 3rem;
+  font-style: normal;
 }
 
 .my-recipes-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .my-recipe-row {
@@ -27,15 +35,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-xs);
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-sm);
   background: var(--white);
-  transition: border-color 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), border-color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
 }
 
 .my-recipe-row:hover {
-  border-color: var(--primary);
+  background: var(--primary-light);
+  border-left-color: var(--primary-dark);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
 
 .my-recipe-name {
@@ -43,23 +57,27 @@
   border: none;
   font-family: var(--font-headline);
   font-size: 1rem;
+  font-weight: 600;
   color: var(--neutral);
   cursor: pointer;
   text-align: left;
   flex: 1;
   padding: 0;
   line-height: 1.4;
+  transition: color var(--transition);
 }
 
 .my-recipe-name:hover {
-  color: var(--primary);
+  color: var(--primary-dark);
 }
 
 .my-recipe-meta {
+  display: block;
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--neutral-light);
   font-weight: 400;
+  margin-top: 0.15rem;
 }
 
 .my-recipe-actions {
