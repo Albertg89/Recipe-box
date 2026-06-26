@@ -4,17 +4,18 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: var(--secondary);
+  background: radial-gradient(ellipse at 50% 0%, #eee9e0 0%, #F5F2ED 60%) fixed;
+  background-color: var(--secondary);
 }
 
 .error-card {
   width: 100%;
   max-width: 680px;
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
 }
 
 .error-body {
@@ -22,16 +23,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 4rem 3rem;
   text-align: center;
 }
 
+.error-body::before {
+  content: '🍳';
+  font-size: 5rem;
+  line-height: 1;
+}
+
 .error-message {
-  font-size: 1.05rem;
-  color: var(--neutral);
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  color: var(--neutral-mid);
   line-height: 1.7;
-  max-width: 480px;
+  max-width: 420px;
 }
 
 .error-home-btn {
