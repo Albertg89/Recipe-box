@@ -21,8 +21,8 @@ export default function Contact() {
               <span className="contact-icon">✉️</span>
               <div>
                 <span className="contact-type">Email</span>
-                <a href="mailto:albertg89@hotmail.com" className="contact-value">
-                  albertg89@hotmail.com
+                <a href="mailto:support@recipebox.com" className="contact-value">
+                  support@recipebox.com
                 </a>
               </div>
             </li>

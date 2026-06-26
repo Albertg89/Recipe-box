@@ -17,6 +17,9 @@ export default function Auth() {
     firstName: '', lastName: '', username: '', email: '', password: '',
   })
   const [loginForm, setLoginForm] = useState({ email: '', password: '' })
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   async function handleSignup(e) {
     e.preventDefault()
@@ -24,6 +27,10 @@ export default function Auth() {
     const { firstName, lastName, username, email, password } = signupForm
     if (!firstName || !lastName || !username || !email || !password) {
       setError('Please fill in all fields.')
+      return
+    }
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.')
       return
     }
     try {
@@ -58,6 +65,9 @@ export default function Auth() {
     setMode(next)
     setError('')
     setAwaitingConfirmation(false)
+    setConfirmPassword('')
+    setShowPassword(false)
+    setShowConfirmPassword(false)
   }
 
   if (awaitingConfirmation) {
@@ -112,12 +122,38 @@ export default function Auth() {
                 value={signupForm.email}
                 onChange={e => setSignupForm(f => ({ ...f, email: e.target.value }))}
               />
-              <input
-                type="password"
-                placeholder="password"
-                value={signupForm.password}
-                onChange={e => setSignupForm(f => ({ ...f, password: e.target.value }))}
-              />
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="password"
+                  value={signupForm.password}
+                  onChange={e => setSignupForm(f => ({ ...f, password: e.target.value }))}
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowPassword(v => !v)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
+              <div className="password-wrapper">
+                <input
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  placeholder="confirm password"
+                  value={confirmPassword}
+                  onChange={e => setConfirmPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowConfirmPassword(v => !v)}
+                  aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                >
+                  {showConfirmPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
               <div className="auth-footer">
                 <span className="auth-toggle">
                   Already have an account?{' '}

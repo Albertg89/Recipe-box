@@ -58,3 +58,31 @@
 .auth-toggle button:hover {
   color: var(--primary-dark);
 }
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  flex: 1;
+  padding-right: 3.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  padding: 0;
+  line-height: 1;
+}
+
+.password-toggle:hover {
+  color: var(--primary-dark);
+}

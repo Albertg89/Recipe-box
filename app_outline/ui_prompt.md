@@ -15,3 +15,4 @@ The user should be able to conduct the following actions:
 I want you to generate the actions above where each action represents a phase, verify each phase by using the playwright mcp to walk through the user journey as if you were the user and confirm the action was build correctly.
 
 Do you have any questions before executing this task?
+
