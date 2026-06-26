@@ -1,53 +1,57 @@
 .home-wrapper {
   min-height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
-  background: var(--secondary);
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(ellipse at 50% 0%, #eee9e0 0%, #F5F2ED 60%) fixed;
+  background-color: var(--secondary);
 }
 
 .home-card {
   width: 100%;
   max-width: 760px;
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
 }
 
 .home-welcome-banner {
-  background: var(--bg-logo);
-  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 1.25rem 2rem 1.5rem;
   font-family: var(--font-headline);
-  font-size: 1.25rem;
-  color: var(--neutral);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--white);
   text-align: center;
-  border-bottom: 1.5px solid var(--border);
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .home-content {
-  padding: 1.8rem 2rem 2rem;
+  padding: 2rem 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 .home-section {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
 .home-section-title {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-family: var(--font-headline);
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--neutral-mid);
-  margin-bottom: 0.2rem;
-  text-transform: none;
-  letter-spacing: 0;
+  color: var(--neutral);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-light);
+  margin-bottom: 0.25rem;
 }
 
 .home-recipe-row {
@@ -55,25 +59,31 @@
   width: 100%;
   text-align: left;
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-xs);
-  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.25rem;
   font-family: var(--font-headline);
   font-size: 1rem;
   color: var(--neutral);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), border-color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
 }
 
 .home-recipe-row:hover {
   background: var(--primary-light);
-  border-color: var(--primary);
+  border-left-color: var(--primary-dark);
   color: var(--primary-dark);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
 
 .home-empty {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--neutral-light);
   font-style: italic;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
+  text-align: center;
 }
